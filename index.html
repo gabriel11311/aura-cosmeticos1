@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aura Cosméticos</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Estilos adicionais para a rotação e transição */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f9f9; /* cor de fundo do site */
+    }
+
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+    }
+
+    nav li {
+      margin-right: 20px;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    main {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+    }
+
+    #products {
+      margin-top: 20px;
+    }
+
+    #product-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .product {
+      perspective: 1000px;
+      display: inline-block;
+      margin: 20px;
+      cursor: pointer; /* Adiciona um cursor de ponteiro para indicar que é clicável */
+    }
+
+    .product-container {
+      display: flex;
+      justify-content: center; /* Centraliza o contêiner preto em relação ao fundo branco */
+      align-items: center;
+      width: 180px; /* Largura do contêiner */
+      height: 240px; /* Altura do contêiner */
+      background-color: rgb(0, 0, 0); /* Fundo branco */
+      border-radius: 10px; /* Bordas arredondadas */
+      padding: 10px; /* Espaçamento interno */
+      box-shadow: 0 2px 10px rgba(102, 101, 101, 0.1); /* Sombra para dar profundidade */
+    }
+
+    .product-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transition: transform 1s;
+      transform-style: preserve-3d;
+    }
+
+    .product-front, .product-back {
+      position: absolute;
+      width: 100%;
+      height: 98%;
+      backface-visibility: hidden;
+      border: 0px solid #ccc;
+      border-radius: 10px; /* Mantém o arredondamento das bordas */
+      overflow: hidden;
+      display: flex; /* Usado para centralizar a imagem */
+      justify-content: center; /* Centraliza horizontalmente */
+      align-items: center; /* Centraliza verticalmente */
+      color: white; /* Cor do texto no verso */
+      font-size: 16px; /* Tamanho da fonte */
+      padding: 10px; /* Espaçamento interno do texto */
+      box-sizing: border-box; /* Inclui padding na largura e altura */
+      flex-direction: column; /* Alinha os itens verticalmente */
+    }
+
+    .product-back {
+      transform: rotateY(180deg);
+      padding: 10px;
+      background-color: #ffffff;
+      color: black; /* Cor do texto no verso */
+    }
+
+    .product-back p {
+      margin: 5px 0; /* Margem entre os textos */
+    }
+
+    img {
+      width: 100%; /* Faz a imagem ocupar 95% da largura do contêiner */
+      height: 100%; /* Faz a imagem ocupar 95% da altura do contêiner */
+      object-fit: cover; /* Mantém a proporção da imagem e cobre todo o espaço */
+      border: 2px solid rgb(255, 255, 255); /* Adiciona uma borda branca à imagem */
+      border-radius: 5px; /* Mantém o arredondamento das bordas */
+    }
+
+    /* Adiciona a classe flipped para girar o produto */
+    .flipped {
+      transform: rotateY(180deg);
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #333;
+      color: white;
+      position: relative;
+      bottom: 0;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#products">Produtos</a></li>
+        <li><a href="#contact">Contato</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <section id="products">
+      <h2>Produtos</h2>
+      <ul id="product-list">
+        <li class="product" onclick="this.querySelector('.product-inner').classList.toggle('flipped')">
+          <div class="product-container">
+            <div class="product-inner">
+              <div class="product-front">
+                <img src="img/imagem1.jpg" alt="Perfume Floral">
+              </div>
+              <div class="product-back">
+                <p>Perfume Floral: Uma fragrância suave e delicada.</p>
+                <p>Preço: R$ 99,90</p>
+                <p>Tamanho: 50ml</p>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="product" onclick="this.querySelector('.product-inner').classList.toggle('flipped')">
+          <div class="product-container">
+            <div class="product-inner">
+              <div class="product-front">
+                <img src="img/imagem2.jpg" alt="Perfume Floral">
+              </div>
+              <div class="product-back">
+                <p>Perfume Floral: Uma fragrância suave e delicada.</p>
+                <p>Preço: R$ 99,90</p>
+                <p>Tamanho: 50ml</p>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="product" onclick="this.querySelector('.product-inner').classList.toggle('flipped')">
+          <div class="product-container">
+            <div class="product-inner">
+              <div class="product-front">
+                <img src="img/imagem3.jpg" alt="Perfume Floral">
+              </div>
+              <div class="product-back">
+                <p>Perfume Floral: Uma fragrância suave e delicada.</p>
+                <p>Preço: R$ 99,90</p>
+                <p>Tamanho: 50ml</p>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="product" onclick="this.querySelector('.product-inner').classList.toggle('flipped')">
+          <div class="product-container">
+            <div class="product-inner">
+              <div class="product-front">
+                <img src="img/imagem4.jpg" alt="Perfume Floral">
+              </div>
+              <div class="product-back">
+                <p>Perfume Floral: Uma fragrância suave e delicada.</p>
+                <p>Preço: R$ 99,90</p>
+                <p>Tamanho: 50ml</p>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="product" onclick="this.querySelector('.product-inner').classList.toggle('flipped')">
+          <div class="product-container">
+            <div class="product-inner">
+              <div class="product-front">
+                <img src="img/imagem5.jpg" alt="Perfume Floral">
+              </div>
+              <div class="product-back">
+                <p>Perfume Floral: Uma fragrância suave e delicada.</p>
+                <p>Preço: R$ 99,90</p>
+                <p>Tamanho: 50ml</p>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="product" onclick="this.querySelector('.product-inner').classList.toggle('flipped')">
+          <div class="product-container">
+            <div class="product-inner">
+              <div class="product-front">
+                <img src="img/imagem6.jpg" alt="Perfume Floral">
+              </div>
+              <div class="product-back">
+                <p>Perfume Floral: Uma fragrância suave e delicada.</p>
+                <p>Preço: R$ 99,90</p>
+                <p>Tamanho: 50ml</p>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="product" onclick="this.querySelector('.product-inner').classList.toggle('flipped')">
+          <div class="product-container">
+            <div class="product-inner">
+              <div class="product-front">
+                <img src="img/imagem7.jpg" alt="Perfume Floral">
+              </div>
+              <div class="product-back">
+                <p>Perfume Floral: Uma fragrância suave e delicada.</p>
+                <p>Preço: R$ 99,90</p>
+                <p>Tamanho: 50ml</p>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="product" onclick="this.querySelector('.product-inner').classList.toggle('flipped')">
+          <div class="product-container">
+            <div class="product-inner">
+              <div class="product-front">
+                <img src="img/imagem8.jpg" alt="Perfume Floral">
+              </div>
+              <div class="product-back">
+                <p>Perfume Floral: Uma fragrância suave e delicada.</p>
+                <p>Preço: R$ 99,90</p>
+                <p>Tamanho: 50ml</p>
+              </div>
+            </div>
+          </div>
+        </li>
+        
+        <li class="product" onclick="this.querySelector('.product-inner').classList.toggle('flipped')">
+          <div class="product-container">
+            <div class="product-inner">
+              <div class="product-front">
+                <img src="img/imagem9.jpg" alt="Perfume Cítrico">
+              </div>
+              <div class="product-back">
+                <p>Perfume Cítrico: Uma explosão de frescor e energia.</p>
+                <p>Preço: R$ 89,90</p>
+                <p>Tamanho: 30ml</p>
+              </div>
+            </div>
+          </div>
+        </li>
+        <!-- Adicione mais produtos conforme necessário -->
+      </ul>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; 2023 Aura Cosméticos. Todos os direitos reservados.</p>
+  </footer>
+</body>
+</html>
